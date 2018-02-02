@@ -1,0 +1,103 @@
+					Filter Commands
+					---------------
+Flat file:
+In a file data entered by using delimiter known as flat file.
+Default delimiter is tab key
+delimiter means file separator
+enter key means record separator
+
+Filter commands :
+
+1. cut --> It is used to extract specific fields and characters from a given file
+Example : cut -f 2,4 file
+	  cut -d "," -f 2-5 file1
+
+2. sort --> It sorts the given file contents in ascending order based on ASCII values.
+(ASCII values : 0-9--> 48-57, A-Z--> 65-90, a-z--> 97-122)
+syntax : 
+sort filename --> sorts file contents in ascending order
+sort -r filename --> sorts file contents in descending order
+sort -u filename --> displays unique lines
+sort -n filename --> sorts file contents base on numeric comparison
+
+Sort  field by field
+--------------------
+
+sort -f +postion1 -postion2 filename
+
+3. uniq : It displays uniq lines in the file but file contents must be in sorted order
+syntax:
+uniq -u filename --> displays non duplicates
+uniq -d filename --> displays duplicate values
+uniq -c filename --> counts how may uniq lines are repeated in file
+
+4. grep (globally search a regular expression and print it)
+   It is used to search a string and regular expression in a given file or files.
+syntax:
+
+grep string/pattern filename(s)
+
+5. fgrep(faster grep)
+   It is used to allow multiple strings, but doesnt allow regular expression.
+
+6. egrep(extended grep)
+   example : egrep '(perl|python)' filename   --> matches either perl or python
+
+7. sed (stream editor)
+   example : sed "s/unix/linux/g" filename
+           s-->substitution
+	   g--> globally & all occurence every line
+
+8. head : By default it displays first 10 lines of a file
+syntax
+   head filename
+   head -n filename
+
+9. tail : By default it displays last 10 lines of a file
+syntax
+    tail filename
+    tail -n filename
+
+10 . | (piping) : It is used to combine two or more commands
+     $ ls -l | wc -l
+
+11. more (or) less both are exactly same
+It is used to see the output line wise or page wise
+
+more /var/log/messages
+less /var/log/messages
+
+v--> to go to vi mode
+d--> to go to next page
+/ --> seach for a word
+b--> to go to previous page
+
+12. find --> it is used to find the files or directory's path
+syntax :
+
+find /(from root director or directory path) -option filename
+
+options :
+-name --> searching file with its name
+-user --> for files whose owner is particular user
+-group--> for files belonging to particular group
+-type --> searching a particular type of file
+-inum --> searching a file with inode no
+
+eg :
+
+find / -name test
+find / -user student
+find / -group amritagroup
+find / -type b  c  d  f  l  p  s
+find / -inum 4567
+
+
+
+
+
+
+
+
+
+

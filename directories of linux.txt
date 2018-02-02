@@ -1,0 +1,61 @@
+		HIERARCHICAL FILE STRUCTURE
+*******************************************************************************
+
+/ : The directory / is the root directory at that top of the file system hierarchy.
+It is the parent directory for all the directories, represented by forward slash(/).
+
+/root : It is home directory for the root user(super user).
+Provides working environment for root user.
+
+
+/home : It is the home directory for all other users(i.e other than root).
+Provides working environment for other users.
+Example : If you login with user "amrita" , then the your default home directory is /home/amrita
+
+/boot : Files needed in order to start the boot process.
+Contains bootable files for linux, like grub2(grand unified boot loader), vmlinuz(kernel), initrd(inital ram disk)
+
+/bin : bin stands for binary. This directory contains executable files for most of unix commands.
+Unix commands can be either C program or shell programs, shell programs are nothing but a collection of several unix commands.
+i.e., IT CONTAINS COMMANDS USED BY ALL USERS. 
+Shell checks the command find in /bin or not, and raises the result or error(not found).
+
+
+/etc : It contains all configuration files. 
+Like /etc/passwd --> user details info, /etc/dhcpd.con --> DHCP server config file, /etc/resolv.con--> DNS server config details.
+
+/dev : It contains device files which are used by system to access hardware
+Like /dev/hda --> hard disk, storage devices.
+
+/lib : This directory contains all library functions provided by unix for programmers. The programs written under unix make use of these library
+functions in lib directory.
+
+/sbin : sbin stands fro super user binary. It contains commands used by only Super user(root).
+
+/opt : It contains 3rd pary softwares, application packages.
+
+/tmp : contains all temporary files used by linux system.
+If user stores any files in this /tmp direcory, once rebooted the files will be deleted as it is for tmp purpose.
+
+/mnt : Contains entries for removable(mountable) media such as CD-ROM. It is empty by default.
+
+/usr : By default softwares are installed  in this /usr directory.
+ Important sub directories :
+/usr/bin --> user commands
+/usr/sbin --> system adminstration commands
+
+/var : It contains the directories of all files that vary among system(ie. dynamically chnage)
+This includes files that log system activity, mail files, application packages, backup files for editors, printer spooled documents,
+and website content.
+
+/var/adm --> contains system logging and accounting files.
+/var/mail --> contain user mail files
+/var/tmp --> it is a directory of temporary files.
+
+/media : contains all removable devices like CDROM, usb-pen drive.
+
+/run : Runtime data for processes started since the last boot.
+This includes process ID files and lock files. The contents of this directory are re-created on reboot.
+
+
+

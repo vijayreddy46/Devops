@@ -1,0 +1,96 @@
+					File Permissions
+					----------------
+Permissions : It is used for providing security on files or directories.
+
+Permissions are applied on 3 levels
+1. user level
+2. group level
+3. others level
+--------------------------
+access modes are 3 types
+1. r --> read only
+2. w --> write/edit/delete/append
+3. x --> execute or run a command
+
+Access modes are different for files & directory
+Permsission	File					Directory
+r		open a file				ls(list) contents of dir
+w		write, edit, append,delete		add/del/rename contents of dir
+x		run a command or shell script		to enter dir using "cd"
+----------------------------
+$ls -l --> It displays files & directories in long list format, as shown below
+filetype|permission|link|username|groupname|sizeinBytes|date of modification|filename
+-	 rw-r--r--  1    balu      linux	540	 june 13 01:20	      balu.txt
+d	 rwxr-wr-w  2	 balu	   linux	720      june 13 01:20        BALU_RHEL
+
+Differenet types of files
+- ordinary file
+d directory
+b special block file
+c sepcial character file
+l symobolic link file
+------------------------------
+Permisssion can be set on a file or directory by two methods
+1. symbolic method
+2. numeric or absolute method
+
+1)symbolic method(ugo)
+chmod is the command to change file permission or directory permission  
+syntax : chmod [who][+/-/=][permissions] filename
+         who--> to whom permission to be assigned --> u=user; g=group; o=others
+	 + --> to add permission
+	 - --> to substract permission
+	 = --> to assign permission (i.e add specified permission & take away all other perm., if present)
+         permissions --> r for read, w for write, x for execute
+
+Example : chmod u+w file.txt
+          chmod u+x,o+x file1.txt
+	  chmod o=r,g-w file1.txt
+
+2) Numeric method (Use numbers, instead of symbols)
+read=4, write=2, execute=1
+(read & write =6, read & execute=5, write & execute =3, read write & excute =7)
+Eample : chmod 700 balu
+	 chmod 754 balu
+	 chmod 777 balu
+
+--------------------------------
+Using umask to set permission :
+The chmod command allows to assign permission on a file by file basis.
+The umask allow allows you to do this automatically when you create a file or directory
+Everyone has a default umask setting set up by system admin or their /etc/profile.
+
+#umask
+0002 -->default umask value
+
+Default permission of a file and directory is based on umask value:-
+*******************
+
+Full permission of a file  666
+minus the umask value     -002
+			  ----
+Default file permission    664 (rw-,rw-,r--)
+			  ----	
+#umask
+0022
+#touch amrita
+-rw-r--r-- 1 root root 0 june 13 02:06 amrita
+
+-------------------
+Full permission of a dir   777
+minus the umask value     -002
+			  ----
+Default file permission    775 (rwx,r-x,r-x)
+			  ----	
+#umask
+0022
+#mkdir BALU_DIR
+#ls -ld BALU_DIR
+drwxr-xr-x 2 root root 4096 june 13 02:06 BALU_DIR
+	 
+-----------------
+
+Modifying the umask value
+#umask 002
+now modified permission for file 666-002=664, dir 777-002=775
+(Note: it is not suggested to change umask value, unless only a system admin can perform)

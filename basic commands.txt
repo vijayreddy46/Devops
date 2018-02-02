@@ -1,0 +1,20 @@
+$logname : It displays the current username
+
+$pwd : It displays current working directory
+
+$clear : Its clear the screen
+
+$exit : to logut from current user
+
+$date : It displays system data & time
+
+$whoami : It displays current username, termainal no, data and time at which you logged into the system.
+
+$who : To display the infromation about all users who have logged into the system currently. ie. each user login name,
+teminal no, data and time that the person logged in.
+
+$cal : It displays previous month current month and next month calendar.
+
+$cal year : It display the given year calendar.
+
+$cal month year : It display the given month calendar only.
